@@ -1,9 +1,7 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-
 /**
- * Created by mb977 on 3/22/17.
+ * Created by emimo on 3/22/2017.
  */
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         ArrayList cards = new ArrayList();
@@ -57,16 +55,15 @@ public class Main {
             while (g) {
                 System.out.println("Enter the name of the extra card (Type NULL to finish)");
                 String p = input.next();
-                extraList.add(p);
-                if (p.equalsIgnoreCase("Null")) {
-                    extraList.remove("Null");
-                    break;
-
-
+                if (!p.equalsIgnoreCase("Null")) {
+                    System.out.println("Enter how many of these extra cards you would like");
+                    extraNum = input.nextInt();
+                    for (int i = 0; i<extraNum; i++){
+                        extraList.add(p);
+                    }
+                }else {
+                    g = false;
                 }
-                System.out.println("Enter how many of these extra cards you would like");
-                extraNum = input.nextInt();
-
             }
         }
         int x = 0;
@@ -82,13 +79,9 @@ public class Main {
                     System.out.println(suitName.get(x));
                 }
                 if (extras.equalsIgnoreCase("yes")) {
-
-                    for (int y = 0; y < extraNum; y++) {
-
+                    for (int y = 0; y < extraList.size(); y++) {
                         System.out.println(extraList.get(y));
                     }
-
-
                 }
                 x++;
             }
