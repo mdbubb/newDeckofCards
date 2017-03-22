@@ -35,10 +35,13 @@ public class Main {
         String extras = input.next();
         int x = 0;
         for (int i = 0; (i < suitNum*numSuit); i++){
-            for (int j = cardExtreme; j <= cardExtreme1; j++){
-                System.out.print(j+ " ");
-                System.out.println(suitName.get(i));
+            while (x<size){
+                for (int j = cardExtreme; j <= cardExtreme1; j++){
+                    System.out.print(j+ " ");
+                    System.out.println(suitName.get(x));
 
+                }
+                x++;
             }
 
         }
