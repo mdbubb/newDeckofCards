@@ -5,7 +5,7 @@ import java.util.Scanner;
  * Created by mb977 on 3/22/17.
  */
 public class Main {
-    public static void main (String[] args){
+    public static void main(String[] args) {
         ArrayList cards = new ArrayList();
         Scanner input = new Scanner(System.in);
         System.out.println("How many suits do you want");
@@ -14,13 +14,13 @@ public class Main {
         int numSuit = input.nextInt();
         System.out.println("Names of each suit");
         boolean b = true;
-        ArrayList suitName = new ArrayList();
-        while(b){
+        ArrayList<String> suitName = new ArrayList<>();
+        while (b) {
             System.out.println("What is the name of the suit");
             String s = input.next();
             suitName.add(s);
-            if(suitName.size()==suitNum){
-                b=false;
+            if (suitName.size() == suitNum) {
+                b = false;
             }
         }
         int size = suitName.size();
@@ -30,60 +30,67 @@ public class Main {
         int cardExtreme1 = input.nextInt();
         System.out.println("Standard face? Ace, Jack, King and Queen? Yes or No");
         String standard = input.next();
-        ArrayList m= new ArrayList();
-       if(standard.equalsIgnoreCase("No")) {
-           boolean a = true;
-           while (a) {
-               System.out.println("Enter the names of the face cards (Type NULL to finish)");
-               String y = input.next();
-               m.add(y);
-               if(y.equalsIgnoreCase("null")){
-                   a=false;
-                   m.remove("null");
-               }
-           }
-       } else{
-           m.add("Ace");
-           m.add("Jack");
-           m.add("Queen");
-           m.add("King");
-       }
+        ArrayList<String> m = new ArrayList<>();
+        if (standard.equalsIgnoreCase("No")) {
+            boolean a = true;
+            while (a) {
+                System.out.println("Enter the names of the face cards (Type NULL to finish)");
+                String y = input.next();
+                m.add(y);
+                if (y.equalsIgnoreCase("null")) {
+                    m.remove("null");
+                    a = false;
+                }
+            }
+        } else {
+            m.add("Jack");
+            m.add("Queen");
+            m.add("King");
+            m.add("Ace");
+        }
         System.out.println("Extra cards? Yes or No");
         String extras = input.next();
-        ArrayList extraList = new ArraryList();
-        int extraNum =0;
-        if(extras.equalsIgnoreCase("Yes"){
-         boolean g = true;
-            while(g){
-             System.out.println("Enter the name of the extra card (Type NULL to finish)");
+        ArrayList<String> extraList = new ArrayList<>();
+        int extraNum = 0;
+        if (extras.equalsIgnoreCase("Yes")) {
+            boolean g = true;
+            while (g) {
+                System.out.println("Enter the name of the extra card (Type NULL to finish)");
                 String p = input.next();
                 extraList.add(p);
-                System.out.println("Enter how many of these extra cards you would like);
+                if (p.equalsIgnoreCase("Null")) {
+                    extraList.remove("Null");
+                    break;
+
+
+                }
+                System.out.println("Enter how many of these extra cards you would like");
                 extraNum = input.nextInt();
-                   if(p.equalsIgnoreCase("Null"){
-                   g = false;
-                       extraList.remove("Null");
-                   }
+
             }
         }
         int x = 0;
-        for (int i = 0; (i < suitNum*numSuit); i++){
-            while (x<size){
-                for (int j = cardExtreme; j <= cardExtreme1; j++){
-                    System.out.print(j+ " ");
+        for (int i = 0; (i < suitNum * numSuit); i++) {
+            while (x < size) {
+                for (int j = cardExtreme; j <= cardExtreme1; j++) {
+                    System.out.print(j + " of ");
                     System.out.println(suitName.get(x));
                 }
-                for(int u =0; u<m.size(); u++){
-                    System.out.print(suitName.get(x) + " ");
-                    System.out.println(m.get(u)+ "\n");
+                for (int u = 0; u < m.size(); u++) {
+                    System.out.print(m.get(u));
+                    System.out.print(" of ");
+                    System.out.println(suitName.get(x));
                 }
-                if(extras.equalsIgnoreCase("Yes"){
-                for(int y = 0; y<extraNum; y++){
-                System.out.println("EXTRA CARDS");
-                System.out.println(extraList.get(y));
+                if (extras.equalsIgnoreCase("yes")) {
+
+                    for (int y = 0; y < extraNum; y++) {
+
+                        System.out.println(extraList.get(y));
+                    }
+
+
                 }
-               }
-             x++;
+                x++;
             }
         }
 
