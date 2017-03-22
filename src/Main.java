@@ -48,8 +48,24 @@ public class Main {
            m.add("Queen");
            m.add("King");
        }
-        System.out.println("Extra cards and amount?");
+        System.out.println("Extra cards? Yes or No");
         String extras = input.next();
+        ArrayList extraList = new ArraryList();
+        int extraNum =0;
+        if(extras.equalsIgnoreCase("Yes"){
+         boolean g = true;
+            while(g){
+             System.out.println("Enter the name of the extra card (Type NULL to finish)");
+                String p = input.next();
+                extraList.add(p);
+                System.out.println("Enter how many of these extra cards you would like);
+                extraNum = input.nextInt();
+                   if(p.equalsIgnoreCase("Null"){
+                   g = false;
+                       extraList.remove("Null");
+                   }
+            }
+        }
         int x = 0;
         for (int i = 0; (i < suitNum*numSuit); i++){
             while (x<size){
@@ -59,8 +75,14 @@ public class Main {
                 }
                 for(int u =0; u<m.size(); u++){
                     System.out.print(suitName.get(x) + " ");
-                    System.out.println(m.get(u));
+                    System.out.println(m.get(u)+ "\n");
                 }
+                if(extras.equalsIgnoreCase("Yes"){
+                for(int y = 0; y<extraNum; y++){
+                System.out.println("EXTRA CARDS");
+                System.out.println(extraList.get(y));
+                }
+               }
              x++;
             }
         }
