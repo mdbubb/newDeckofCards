@@ -30,7 +30,25 @@ public class Main {
         int cardExtreme1 = input.nextInt();
         System.out.println("Standard face? Ace, Jack, King and Queen? Yes or No");
         String standard = input.next();
+        ArrayList m= new ArrayList();
+       if(standard.equalsIgnoreCase("No")) {
+           boolean a = true;
+           while (a) {
+               System.out.println("Enter the names of the face cards (Type NULL to break)");
+               String y = input.next();
+               m.add(y);
+               if(y.equalsIgnoreCase("null")){
+                   a=false;
+               }
+           }
 
+       } else{
+           m.add("Ace");
+           m.add("Jack");
+           m.add("Queen");
+           m.add("King");
+
+       }
         System.out.println("Extra cards and amount?");
         String extras = input.next();
         int x = 0;
@@ -40,6 +58,12 @@ public class Main {
                     System.out.print(j+ " ");
                     System.out.println(suitName.get(x));
 
+
+
+                }
+                for(int u =0; u<m.size(); u++){
+                    System.out.print(suitName.get(x) + " ");
+                    System.out.println(m.get(u));
                 }
                 x++;
             }
