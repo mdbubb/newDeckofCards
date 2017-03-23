@@ -80,9 +80,12 @@ public class Main {
                 x++;
             }
         }
+
         if (extras.equalsIgnoreCase("yes")) {
+            int l =1;
             for (int y = 0; y < extraList.size(); y++) {
-                System.out.println(extraList.get(y) + " # " + y);
+                System.out.println(extraList.get(y) + " # " + l);
+                l++;
             }
         }
 
